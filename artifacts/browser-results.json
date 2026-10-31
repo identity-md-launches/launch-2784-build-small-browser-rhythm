@@ -1,0 +1,91 @@
+{
+  "results": [
+    {
+      "name": "Initial product and Start action at 390; complete local metadata",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "Actual keyboard catches, miss resets combo, pause/help/resume, sound, finish, saved best and restart",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "Touch anywhere in a lane catches once, without a duplicate click miss",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "5-second polls, mid-run wake-up preserves score/combo, ×2 live, sleep, stale/failure keeps last good values",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "Fully offline and denied localStorage still produce a complete playable calm run",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "An entirely quiet 24 hours offers honest calm practice; daily API replay is cached on reload",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "Keyboard focus, dialog focus containment, reduced motion, 200% text reflow, automated accessibility",
+      "passed": true,
+      "detail": "25 axe rules passed; zero violations. Text enlargement is not native browser zoom."
+    },
+    {
+      "name": "Responsive export and 48px controls at 320, 360, 390, 700, 768, 1024 and 1440",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "Production API integration: actual responses render defensively; local assets all load",
+      "passed": true,
+      "detail": {
+        "status": "IDLE",
+        "rpm": "0.0",
+        "block": "Block #5204",
+        "track": "Replay · 2026-10-31 · 427MP4",
+        "offlineStatus": false,
+        "offlineTrack": false
+      }
+    },
+    {
+      "name": "Actual animation frame sample and canvas hit line after resize",
+      "passed": true,
+      "detail": {
+        "frames": 120,
+        "meanMs": 16.66583333333333,
+        "p95Ms": 16.800000000000182,
+        "pixel": [
+          247,
+          199,
+          103,
+          255
+        ]
+      }
+    },
+    {
+      "name": "No uncaught JavaScript exceptions or missing local resources across Chromium interactions",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "WebKit primary interaction, mobile layout and optional sound handling",
+      "passed": true,
+      "detail": {
+        "soundEnabled": false,
+        "limitation": "Headless WebKit audio could not resume; the bounded silent fallback was verified."
+      }
+    },
+    {
+      "name": "No uncaught exceptions after both browser engines",
+      "passed": true,
+      "detail": ""
+    }
+  ],
+  "failures": 0,
+  "consoleErrors": []
+}

@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <rect width="1200" height="630" fill="#101522"/>
+  <g fill="#38435a"><rect x="70" y="70" width="6" height="6"/><rect x="1100" y="110" width="6" height="6"/><rect x="680" y="520" width="6" height="6"/></g>
+  <g font-family="Arial, sans-serif">
+    <text x="80" y="135" font-size="32" font-weight="700" fill="#f6f0e3">Wheel Rhythm<tspan fill="#f7c767">.</tspan></text>
+    <text x="80" y="275" font-size="68" font-weight="700" fill="#f6f0e3">Tiny paws.</text>
+    <text x="80" y="355" font-size="68" font-weight="700" fill="#f7c767">Big rhythm.</text>
+    <text x="83" y="420" font-size="24" fill="#a4adc0">A rhythm game powered by one real hamster.</text>
+    <rect x="80" y="475" width="227" height="58" rx="5" fill="#f7c767"/>
+    <path d="m108 493 15 11-15 11z" fill="#101522"/>
+    <text x="139" y="512" font-size="21" font-weight="700" fill="#101522">Catch the rhythm</text>
+    <text x="80" y="586" font-size="16" fill="#a4adc0">Powered by Squeekchain</text>
+  </g>
+  <g shape-rendering="crispEdges" transform="translate(684 120) scale(1.38)">
+    <path d="M80 20h120v8h24v12h20v20h12v24h8v104h-8v24h-12v20h-20v12h-24v8H80v-8H56v-12H36v-20H24v-24h-8V84h8V60h12V40h20V28h24z" fill="none" stroke="#b98837" stroke-width="7"/>
+    <circle cx="140" cy="136" r="104" fill="none" stroke="#7c542f" stroke-width="5"/>
+    <g stroke="#5f482f" stroke-width="4"><path d="M140 32v208M36 136h208M66 62l148 148M214 62 66 210"/></g>
+    <path d="M102 248v25h-30v6h140v-6h-32v-25" fill="#b98837"/>
+    <path d="M88 165v-14h14v-11h15v16h31v-15h13v20h16v13h15v42H78v-42z" fill="#7c542f"/>
+    <path d="M90 165v-11h11v-9h12v16h38v-15h7v18h16v12h14v36H82v-36z" fill="#f4a16d"/>
+    <path d="M130 178h51v8h12v23h-18v7h-58v-25h13z" fill="#ffe3ac"/>
+    <path d="M150 176h7v8h-7zm23 0h7v8h-7z" fill="#242531"/>
+    <path d="M188 188h8v6h-8zM98 213h17v7H98zm52 0h17v7h-17z" fill="#dd977b"/>
+    <path d="M45 293h190v4H45z" fill="#38435a"/>
+    <g fill="#f7c767"><path d="M246 170h10v5h-15v-5zm-6 5h15v5h-15zm-5 5h15v5h-15zm0 5h10v5h-10z"/><path d="M264 202h7v4h-10v-4zm-6 4h13v5h-13zm0 5h8v4h-8z"/></g>
+  </g>
+</svg>

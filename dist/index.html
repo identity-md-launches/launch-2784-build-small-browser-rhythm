@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#101522">
+    <title>Wheel Rhythm · Tiny paws. Big rhythm.</title>
+    <meta name="description" content="Catch seeds. Find your rhythm. A free three-lane rhythm game powered by a real hamster wheel on Squeekchain. Play live or replay its last 24 hours.">
+    <meta property="og:title" content="Wheel Rhythm · Tiny paws. Big rhythm.">
+    <meta property="og:description" content="One real hamster. Three lanes. Catch the rhythm of Squeekchain's wheel, even when its little runner is asleep.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="./assets/share.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="icon" type="image/svg+xml" href="./assets/favicon.svg">
+    <link rel="stylesheet" href="./src/style.css">
+    <script type="module" src="./src/app.js"></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#game">Skip to game</a>
+    <div class="app-shell">
+      <header class="site-header">
+        <div class="brand">
+          <img src="./assets/favicon.svg" alt="" width="36" height="36">
+          <h1>Wheel Rhythm<span class="brand-dot">.</span></h1>
+        </div>
+        <div class="utilities">
+          <button id="sound" class="utility" type="button" aria-label="Enable sound" aria-pressed="false" title="Enable sound">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M11 5 6 9H3v6h3l5 4z"/><path id="sound-wave" d="m16 9 5 6m0-6-5 6"/></svg>
+          </button>
+          <button id="help" class="utility" type="button" aria-label="How to play" title="How to play"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M9.6 8.7a2.5 2.5 0 0 1 4.9.8c0 1.7-2.5 2-2.5 3.8M12 17h.01"/></svg></button>
+        </div>
+      </header>
+
+      <section class="telemetry" aria-label="Hamster wheel status">
+        <div class="wheel-readings">
+          <span class="status-pill" id="status-pill"><span class="status-dot"></span><span id="core-status">Connecting</span></span>
+          <span class="rpm"><strong id="rpm">–</strong> RPM</span>
+          <span id="connection-badge" class="connection-badge" hidden>offline, last data</span>
+        </div>
+        <div class="block-reading">
+          <div class="block-label"><span id="block-height">Block pending</span><span id="block-percent">–</span></div>
+          <progress id="block-progress" max="1" value="0" aria-label="Current block progress"></progress>
+        </div>
+      </section>
+
+      <main class="game-layout" id="game" tabindex="-1">
+        <aside class="hamster-side" aria-label="Your little rhythm companion">
+          <div class="side-heading"><h2>Tiny paws.<br><span>Big rhythm.</span></h2><p>A rhythm game powered<br class="desktop-break"> by one real hamster.</p></div>
+          <canvas id="hamster" width="320" height="280" role="img" aria-label="An original pixel-art hamster sleeping inside a golden wheel"></canvas>
+          <div class="companion-caption"><span class="tiny-moon" aria-hidden="true"></span><span id="hamster-caption">Resting between runs.</span></div>
+          <div class="side-note"><span class="seed-icon" aria-hidden="true"></span><p>His wheel sets the rhythm.<br>You catch the seeds.</p></div>
+        </aside>
+
+        <section class="game-panel" aria-label="Three-lane rhythm game">
+          <div class="mode-row"><div><div class="mode-title"><span id="mode-dot" class="mode-dot"></span><strong id="mode-label">Replay of the last 24 hours</strong></div><p id="mode-description">Hamster asleep; replaying his wheel activity.</p></div><span class="multiplier" id="multiplier">×1</span></div>
+
+          <div class="scoreboard" aria-label="Run statistics">
+            <div><span>Score</span><strong id="score">00000</strong></div>
+            <div><span>Combo</span><strong id="combo">0<span class="combo-unit">×</span></strong></div>
+            <div><span>Best <svg viewBox="0 0 16 16" aria-hidden="true"><path d="m8 1 2 4 4 .5-3 3 .8 4.5L8 11l-3.8 2L5 8.5l-3-3L6 5z"/></svg></span><strong id="best">00000</strong></div>
+            <div class="time-stat"><span>Time left</span><strong id="time">1:12</strong></div>
+          </div>
+
+          <div class="track-info" id="track-info">
+            <div class="track-meta"><span id="section-label">His day in 24 short sections</span><span id="track-badge" hidden>offline track</span></div>
+            <div id="hour-strip" class="hour-strip" role="img" aria-label="24 hourly activity sections; waiting for track"></div>
+          </div>
+
+          <div class="playfield" id="playfield">
+            <canvas id="track" role="img" aria-label="Seeds fall through three lanes. Catch them at the gold hit line using A, S and D, or the lane buttons."></canvas>
+            <div class="wake-banner" id="wake-banner" role="status" hidden>He is running! Live rhythm · ×2</div>
+            <div class="judgement" id="judgement" aria-hidden="true"></div>
+            <div class="rest-label" id="rest-label" hidden><span class="rest-moon" aria-hidden="true">☾</span><strong>A quiet hour</strong><span id="rest-description">Rest your paws. More rhythm ahead.</span></div>
+
+            <div class="game-overlay" id="overlay">
+              <div id="start-screen" class="overlay-content">
+                <div class="intro-seeds" aria-hidden="true"><i></i><i></i><i></i></div>
+                <h2 id="start-title">Ready to roll?</h2>
+                <ol class="rules">
+                  <li><span>1</span>Catch seeds on the gold line.</li>
+                  <li><span>2</span>Press A, S, D or tap a lane.</li>
+                  <li><span>3</span>A miss resets your combo.</li>
+                </ol>
+                <button id="start" class="primary-button" type="button"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="m5 2 9 6-9 6z"/></svg><span id="start-label">Start playing</span></button>
+                <p class="start-note">72 seconds · One seed at a time</p>
+              </div>
+              <div id="pause-screen" class="overlay-content" hidden>
+                <h2>Take a breather.</h2><p>The seeds can wait.</p>
+                <button id="resume" class="primary-button" type="button">Resume playing</button>
+                <button id="end-run" class="text-button" type="button">End this run</button>
+              </div>
+              <div id="end-screen" class="overlay-content" hidden>
+                <h2 id="end-title">Nice little run.</h2>
+                <div class="end-score" id="end-score">0</div>
+                <p id="end-best">Best on this device: 0</p>
+                <div class="end-breakdown"><span><strong id="perfect-count">0</strong> Perfect</span><span><strong id="good-count">0</strong> Good</span><span><strong id="miss-count">0</strong> Miss</span></div>
+                <p id="end-combo">Top combo: 0×</p>
+                <button id="again" class="primary-button" type="button">Play again<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 7v5h-5M20 12a8 8 0 1 0-2 6"/></svg></button>
+              </div>
+            </div>
+
+            <div class="lane-controls" id="lane-controls" inert>
+              <button class="lane-button" data-lane="0" type="button" aria-label="Catch seed in left lane, A or Left arrow"><span class="hit-target" aria-hidden="true"></span><kbd>A</kbd><span class="arrow-key" aria-hidden="true">←</span></button>
+              <button class="lane-button" data-lane="1" type="button" aria-label="Catch seed in middle lane, S or Down arrow"><span class="hit-target" aria-hidden="true"></span><kbd>S</kbd><span class="arrow-key" aria-hidden="true">↓</span></button>
+              <button class="lane-button" data-lane="2" type="button" aria-label="Catch seed in right lane, D or Right arrow"><span class="hit-target" aria-hidden="true"></span><kbd>D</kbd><span class="arrow-key" aria-hidden="true">→</span></button>
+            </div>
+          </div>
+
+          <div class="game-bottom"><span id="bottom-hint">Catch seeds on the gold line.</span><button id="pause" class="pause-button" type="button" disabled aria-label="Pause game"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M5 3v10M11 3v10"/></svg><span>Pause</span></button></div>
+        </section>
+      </main>
+
+      <footer class="site-footer"><a href="https://squeekchain.com" target="_blank" rel="noopener noreferrer">Powered by Squeekchain <span aria-hidden="true">↗</span></a><span id="track-id">A real wheel. Your own rhythm.</span><span>Best scores stay on this device.</span></footer>
+    </div>
+
+    <dialog id="help-dialog" aria-labelledby="help-title">
+      <div class="dialog-heading"><h2 id="help-title">A little rhythm guide</h2><button class="utility" id="close-help" type="button" aria-label="Close guide"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 6 12 12M18 6 6 18"/></svg></button></div>
+      <p>Catch each seed as its center reaches the gold line. Use <kbd>A</kbd>, <kbd>S</kbd>, <kbd>D</kbd>, the left/down/right arrows, or tap anywhere in a lane.</p>
+      <dl class="timing-guide"><div><dt>Perfect</dt><dd>Within 70 ms · 100 points</dd></div><div><dt>Good</dt><dd>Within 160 ms · 50 points</dd></div><div><dt>Miss</dt><dd>Late or wrong lane · combo resets</dd></div></dl>
+      <p><strong>Live:</strong> when the hamster runs, the real RPM sets the speed and density. All catches score ×2.</p>
+      <p><strong>Replay:</strong> his last 24 hours become 24 three-second sections. Busy hours bring more seeds; quiet hours are a rest. All catches score ×1.</p>
+      <p>If all 24 hours were quiet, the Start button offers a labeled calm practice track so there are still seeds to catch.</p>
+      <p>A wake-up switches you to Live without restarting. Press <kbd>P</kbd> or <kbd>Esc</kbd> to pause. Switching tabs pauses automatically.</p>
+      <p class="help-data">Status refreshes every 5 seconds. Offline badges mean the last good status or the built-in calm track is in use. Replay scores are comparable for the same track ID. No account needed.</p>
+      <p class="help-data">Sources: <a href="https://api.squeekchain.com/v1/status" target="_blank" rel="noopener noreferrer">wheel status</a> and <a href="https://api.squeekchain.com/v1/settlements?range=24h" target="_blank" rel="noopener noreferrer">24-hour activity</a>.</p>
+    </dialog>
+    <p id="announcer" class="sr-only" role="status" aria-live="polite"></p>
+    <noscript><p class="noscript">Wheel Rhythm needs JavaScript to run the game. Enable it and reload to play.</p></noscript>
+  </body>
+</html>

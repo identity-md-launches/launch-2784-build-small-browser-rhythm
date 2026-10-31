@@ -1,0 +1,22 @@
+# Path budget: this file <= 1024 bytes; exclusions only for dependencies,
+# generated caches/reports at any nesting level, and disposable test scratch.
+# The production dist/ export is deliberately included.
+**/node_modules/
+**/.npm/
+**/.cache/
+**/.vite/
+**/playwright-report/
+**/test-results/
+test/scratch/
+# Deliver only these bounded validation artifacts.
+!artifacts/
+artifacts/*
+!artifacts/validation.md
+!artifacts/browser-results.json
+!artifacts/taste.json
+!artifacts/axe-ready.json
+!artifacts/design-guidance-LICENSE.txt
+!artifacts/390-first-screen.png
+!artifacts/1440-playing.png
+!artifacts/390-webkit.png
+!artifacts/390-wake.png

@@ -1,0 +1,20 @@
+{
+  "name": "wheel-rhythm",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "A tiny browser rhythm game powered by Squeekchain's real hamster wheel.",
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "preview": "node scripts/preview.mjs",
+    "typecheck": "tsc --noEmit -p jsconfig.json",
+    "test": "node --test test/model.test.mjs",
+    "test:browser": "node test/browser.mjs"
+  },
+  "devDependencies": {
+    "@axe-core/playwright": "4.11.0",
+    "playwright": "1.56.1",
+    "typescript": "5.9.3"
+  },
+  "engines": { "node": ">=22" }
+}
